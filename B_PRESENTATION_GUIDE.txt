@@ -3,6 +3,12 @@ Language: English
 Project root: the folder containing README.md and src/
 All paths below are relative to that project root.
 
+MAIN NOTEBOOK
+Open ENGG2112_Data_Engineering.ipynb and select the project Python kernel.
+Use inspect mode with the existing private handoff. Section 4 shows class counts,
+section 5 checks splits, section 6 describes preprocessing, section 7 verifies and
+loads images, and sections 8-9 contain the recorded report and acceptance checklist.
+
 1. TASK AND LABELS
 Open: data/train.csv
 Explain: This is a five-class task. id_code identifies the image; diagnosis is
@@ -10,7 +16,7 @@ the original grade: 0 No DR, 1 Mild, 2 Moderate, 3 Severe, 4 Proliferative DR.
 
 2. CLASS DISTRIBUTION
 Open: artifacts/audit/class_distribution.png
-Or: notebooks/01_data_audit.ipynb (Section 3)
+Or: ENGG2112_Data_Engineering.ipynb (Section 4)
 Explain: The 3,662 original records are imbalanced. Counts are 1,805, 370, 999,
 193 and 295 for grades 0 to 4. Overall accuracy alone can hide weak minority-class results.
 
@@ -49,6 +55,7 @@ Request the private handoff archive from A using an authorised team channel.
 The private archive is not stored in this public repository.
 
 The private archive includes the reports under reports/. It excludes original
-full-resolution images; the full audit Notebook requires those originals.
-The prepared-image loading example works with the private archive alone.
+full-resolution images; build mode requires those originals.
+The complete Notebook's inspect mode and the loading example use prepared data.
+Obtain the new complete Notebook from GitHub separately from the earlier archive.
 Distribute dataset files only to authorised teammates under the dataset terms.

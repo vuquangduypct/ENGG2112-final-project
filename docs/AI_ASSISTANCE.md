@@ -4,6 +4,8 @@ Codex assisted with the data audit, provisional split, preprocessing pipeline,
 tests, learning Notebook, English report and A-to-B handoff documentation.
 The initial analysis was recorded on 7 October 2026; handoff tooling and English
 translation were added on 13 October, and publication materials on 14 October.
+On 14 October, Codex also consolidated the code and handoff into the self-contained
+ENGG2112_Data_Engineering.ipynb, retaining the original scripts and report exports.
 
 The student requested five original grades and local preparation before upload.
 Generated material must be reviewed, understood and revised by the team.

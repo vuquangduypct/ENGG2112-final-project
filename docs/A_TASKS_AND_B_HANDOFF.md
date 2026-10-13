@@ -2,6 +2,8 @@
 
 Updated 14 October 2026. Dataset version: `aptos5-provisional-v1`.
 
+**Main interactive deliverable:** [ENGG2112_Data_Engineering.ipynb](../ENGG2112_Data_Engineering.ipynb) combines the actual code, recorded findings and handoff instructions. Use inspect mode with the existing private handoff, or build mode with authorised originals and a new run name. Existing scripts and report exports remain available.
+
 **Current status:** the data interface is ready for integration and initial
 training/validation experiments. Duplicate review is incomplete, so this is not
 a frozen dataset for final evaluation. No model performance is claimed.
@@ -125,6 +127,13 @@ not replace that record. Be able to explain the pipeline and its assumptions in 
 own words.
 
 ## Verification already performed
+
+The complete Notebook has 28 cells, including 16 code cells. Its JSON structure
+was validated, and all code cells executed in Python 3.12 against the real
+3,600-image handoff. A separate synthetic-data run checked a fresh build,
+conflicting-label exclusion, group separation, standalone B-side inspection,
+reserved-test access and refusal to overwrite an existing run. Published code
+cells have no saved outputs. These checks do not train or evaluate a model.
 
 The project has 12 passing automated tests covering invalid labels, duplicate grouping,
 reproducible splits, image transforms, ID-based joins, mismatched labels, unsafe paths,

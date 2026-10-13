@@ -4,11 +4,17 @@ Local data-engineering contribution for the APTOS 2019 project. The task uses th
 
 ## Start here
 
+Open [ENGG2112_Data_Engineering.ipynb](ENGG2112_Data_Engineering.ipynb) for the complete English data-engineering contribution in one Jupyter Notebook. It includes the actual Python implementations, audit and class analysis, grouped splitting, image preprocessing, verified loading, recorded findings, and A-to-B instructions. It does not depend on importing `src`.
+
+Select the Python environment with the project dependencies, edit `PROJECT_ROOT` if needed, and run cells from top to bottom. Use `MODE = 'inspect'` with the existing private handoff. For a fresh reproduction from authorised originals, use `MODE = 'build'` and a new `RUN_NAME`; outputs go into a separate `artifacts/notebook_runs/<RUN_NAME>/` handoff. The Notebook refuses an existing build directory. See its first section for the required files. A GitHub clone alone cannot run the data cells without local data.
+
+The original `.py` modules remain available for command-line use and training integration. PDF/DOCX reports are supplementary exports; the main interactive deliverable is the complete `.ipynb`. Clear all saved outputs before sharing a rerun Notebook.
+
 Read [A tasks and B handoff](docs/A_TASKS_AND_B_HANDOFF.md) for completed work, remaining responsibilities and acceptance checks. The [English data report](reports/ENGG2112_Data_Analysis_Report.pdf) describes the measured provisional results.
 
 The repository already contained CSV files at its root. The pipeline reads `data/train.csv` and `data/train_images/`; a fresh clone does not contain the required images or derived outputs. Follow the data preparation steps below.
 
-Open this folder in VS Code. Select `.venv/Scripts/python.exe` as the Python interpreter / Notebook kernel. Start with `notebooks/01_data_audit.ipynb`. It explains the checks step by step in English. Its saved outputs are intentionally empty so it can later be shared without embedded source images. See `B_PRESENTATION_GUIDE.txt` for the handoff demonstration and file locations.
+Open this folder in VS Code. Select `.venv/Scripts/python.exe` as the Python interpreter / Notebook kernel. Start with `ENGG2112_Data_Engineering.ipynb`. The earlier `notebooks/01_data_audit.ipynb` remains a shorter audit walkthrough. Both have empty saved outputs. See `B_PRESENTATION_GUIDE.txt` for the handoff demonstration and file locations.
 
 Create an environment on your computer. On Windows with Python 3.12:
 
