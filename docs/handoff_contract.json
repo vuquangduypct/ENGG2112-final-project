@@ -1,0 +1,42 @@
+{
+  "version": "aptos5-provisional-v1",
+  "packaged_on": "2026-10-13",
+  "source_audit_date": "2026-10-07",
+  "status": "PROVISIONAL: pipeline integration only; review required before final evaluation",
+  "classes": {
+    "0": "No DR",
+    "1": "Mild",
+    "2": "Moderate",
+    "3": "Severe",
+    "4": "Proliferative DR"
+  },
+  "split_counts": {
+    "train": 2521,
+    "test": 541,
+    "validation": 538
+  },
+  "image_shape_hwc": [
+    224,
+    224,
+    3
+  ],
+  "pixel_dtype": "uint8",
+  "pixel_range": [
+    0,
+    255
+  ],
+  "model_normalization": null,
+  "augmentation": null,
+  "metadata_sha256": {
+    "data/train.csv": "b2a3479695922e62c83c94a1a9ef669b4b6d68cc26a1d7090ebedecdd7dd79a5",
+    "artifacts/splits/split_manifest.csv": "6df54b731262b1e4595686375312c4a5280f2a8e2c3afa3340d098837abb9bab",
+    "artifacts/splits/split_summary.json": "8f9538076883e3b2ab1e3eeb7d18a3c4efcbd14ac090963937c7b8d8cb3626c6",
+    "artifacts/splits/excluded_records.csv": "5ee3078e9637c44274e79212a4fee93906e67759ebfe869a5b32ab4346c19272",
+    "data/processed_224_v1/processed_manifest.csv": "1d1b6e7ef6fd5e9a0c9ee0f9dc1c059634cb1fce0929a8c5e8c770d8e122455a",
+    "data/processed_224_v1/preprocessing_config.json": "2c3d2472d92289a551e70f6d7f77fd4bc265f4764cf7c77a0a8eb64213e75e18",
+    "artifacts/handoff/image_checksums.csv": "7d086850eb6f737dd21ce050c51b9d5edc671364a9fdb23bedfc8fcc059766e2"
+  },
+  "manual_similarity_review_complete": false,
+  "patient_independence_verified": false,
+  "model_input_requirements_confirmed_with_B": false
+}

@@ -1,0 +1,91 @@
+ENGG2112 A TO B DATA HANDOFF
+Prepared 13 October 2026
+Version: aptos5-provisional-v1
+
+STATUS
+Ready for pipeline integration and initial train/validation experiments.
+NOT a reviewed/frozen final evaluation dataset. Similar-image review is unfinished.
+No trained model or performance result is included.
+
+WHAT IS INCLUDED
+ENGG2112_B_private_data_v1.zip contains 3,600 prepared images, the matching labels
+and provisional split manifests, exclusions, preprocessing settings, checksums,
+code, a reading example, and the earlier data analysis report.
+This is a local/private handoff. Share only within an authorised project team
+under the dataset terms. Do not upload this archive to a public repository.
+
+ENGG2112_B_code_v1.zip contains code, instructions, tests, and a cleared-output
+Notebook. It does not contain the images or per-image CSV records. On its own,
+it cannot supply the data needed for training.
+
+START ON ANOTHER WINDOWS COMPUTER
+1. Obtain authorised access to the APTOS competition and accept its rules:
+   https://www.kaggle.com/competitions/aptos2019-blindness-detection/data
+2. Extract the private archive into a new local folder. Open that folder in VS Code.
+   Do not extract over another experiment's files.
+3. In a terminal at the folder containing src and this file, run:
+   py -3.12 -m venv .venv
+   .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+   .\.venv\Scripts\python.exe -m src.handoff_data --verify
+   .\.venv\Scripts\python.exe -m examples.load_data_for_b
+4. Verification should report 3,600 images: train 2,521; validation 538; test 541.
+   The reading example should show (224, 224, 3), uint8, and a grade from 0 to 4.
+5. Install the training framework required for your model separately. The supplied
+   environment is for data work. requirements-lock.txt records A's tested Windows
+   Python 3.12 environment; use it if exact reproduction is required and compatible.
+
+DATA CONTRACT
+Task: single-label five-class prediction. Keep grades 0, 1, 2, 3, 4 unchanged.
+0 No DR; 1 Mild; 2 Moderate; 3 Severe; 4 Proliferative DR.
+Inputs: PNG, RGB, 224x224, uint8 values 0..255. The helper returns HWC arrays.
+Transformation: aspect-preserving LANCZOS resize and black padding.
+Automatic black crop: OFF. Augmentation: NONE. Model normalization: NONE.
+B must select the model and apply its required channel order, float conversion,
+normalization, and training-only augmentation exactly once. A softmax classifier
+would have five output scores; any alternative ordinal formulation needs agreement.
+
+CANONICAL FILES
+artifacts/splits/split_manifest.csv: id_code, diagnosis, split, group_id, pixel_sha256.
+data/processed_224_v1/processed_manifest.csv: id_code, diagnosis, split, relative_path,
+crop_box. Join by id_code, never by directory listing order.
+data/processed_224_v1/preprocessing_config.json: transform and source manifest hash.
+docs/handoff_contract.json: version, counts, assumptions and metadata fingerprints.
+artifacts/handoff/image_checksums.csv: exact hashes of the prepared PNG files.
+src/handoff_data.py: validation and framework-independent image-reading interface.
+
+KNOWN ISSUES AND EXCLUSIONS
+Original dataset: 3,662 labelled images; all decoded successfully in the audit.
+123 exact pixel duplicate groups contain 251 records. Of these, 30 groups have
+conflicting grades and contain 62 records. These 62 are temporarily excluded,
+not relabelled or deleted. Details: artifacts/splits/excluded_records.csv.
+Same-grade exact duplicates stay together within one split but remain repeated
+records. There are 3,504 exact-image groups among the 3,600 eligible records.
+The similarity heuristic found 4,096 candidate pairs, not 4,096 confirmed duplicates.
+No manual decisions have been added. Data contain no age or patient ID columns.
+Do not claim patient independence, final absence of leakage, or elderly performance.
+
+WHAT B CAN DO NOW
+Read images and labels; build the five-class pipeline; run a small train/validation
+smoke test; record architecture, input requirements and validation metrics.
+Keep the reserved test split out of tuning. The helper refuses test access by default.
+allow_test=True is an explicit override, not evidence that review is complete.
+Do not randomly split again. Record this handoff version and the manifest hash.
+
+WHAT MUST BE AGREED BEFORE FINAL EXPERIMENTS
+- B: chosen framework, model/weights, image size and normalization.
+- A and B: duplicate-review decisions, final split and any treatment of repeated images.
+- Team: five-grade task, per-grade/overall metrics and treatment of ordinal errors.
+- A: finish supporting background references and the full AI-use appendix.
+Any revised split or preprocessing requires a new version and regenerated checksums.
+If resolution changes, obtain the original images and regenerate from originals;
+enlarging these 224px images cannot recover removed detail.
+
+RAW DATA AND REPRODUCTION
+The private handoff includes train.csv but does not include 8 GB of original images.
+The included data report documents the earlier 7 October audit. To rerun the full
+audit/preprocessing, obtain train_images from Kaggle and put them under data/train_images.
+Use README.md instructions and a new output folder, preserving this handoff snapshot.
+
+AI ASSISTANCE
+Codex generated this handoff interface and documentation. Review and record your
+modifications. docs/AI_ASSISTANCE.md is not the full course AI-use appendix.
