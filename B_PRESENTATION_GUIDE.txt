@@ -1,0 +1,61 @@
+ENGG2112 DATA HANDOFF PRESENTATION GUIDE
+Language: English
+Project root: the folder containing README.md and src/
+All paths below are relative to that project root.
+
+MAIN NOTEBOOK
+Open ENGG2112_Data_Engineering.ipynb and select the project Python kernel.
+Use inspect mode with the existing private handoff. Section 4 shows class counts,
+section 5 checks splits, section 6 describes preprocessing, section 7 verifies and
+loads images, and sections 8-9 contain the recorded report and acceptance checklist.
+
+1. TASK AND LABELS
+Open: data/train.csv
+Explain: This is a five-class task. id_code identifies the image; diagnosis is
+the original grade: 0 No DR, 1 Mild, 2 Moderate, 3 Severe, 4 Proliferative DR.
+
+2. CLASS DISTRIBUTION
+Open: artifacts/audit/class_distribution.png
+Or: ENGG2112_Data_Engineering.ipynb (Section 4)
+Explain: The 3,662 original records are imbalanced. Counts are 1,805, 370, 999,
+193 and 295 for grades 0 to 4. Overall accuracy alone can hide weak minority-class results.
+
+3. DATA QUALITY
+Open: artifacts/audit/conflicting_labels.csv
+Explain: All original images decoded successfully. There are 62 records with
+conflicting grades among exact pixel duplicates. These are provisionally excluded,
+not relabelled. Similar-image candidates still require review.
+
+4. PREPARED IMAGES AND SPLITS
+Images: data/processed_224_v1
+Manifest: artifacts/splits/split_manifest.csv
+Settings: data/processed_224_v1/preprocessing_config.json
+Explain: Inputs are 224x224 RGB PNGs, with aspect-preserving resizing and black
+padding. Counts are 2,521 train, 538 validation and 541 test. Use the shared
+manifest and join by image ID; do not independently split the images again.
+
+5. RUN THE LOADING EXAMPLE
+Instructions: B_START_HERE.txt
+Example: examples/load_data_for_b.py
+From the project root, run:
+  ./.venv/Scripts/python.exe -m src.handoff_data --verify
+  ./.venv/Scripts/python.exe -m examples.load_data_for_b
+Expected: 3,600 verified images; the example reports (224, 224, 3), uint8,
+and an integer label from 0 to 4.
+
+WHAT TO TELL B
+The package is ready for pipeline integration and initial train/validation work.
+Normalization has not been applied. Please confirm the model, required input
+resolution and normalization. The split is provisional until duplicate review
+is complete; keep test data out of tuning and do not report final test results yet.
+
+REPORTS AND PRIVATE ARCHIVES
+The public report is reports/ENGG2112_Data_Analysis_Report.pdf.
+Request the private handoff archive from A using an authorised team channel.
+The private archive is not stored in this public repository.
+
+The private archive includes the reports under reports/. It excludes original
+full-resolution images; build mode requires those originals.
+The complete Notebook's inspect mode and the loading example use prepared data.
+Obtain the new complete Notebook from GitHub separately from the earlier archive.
+Distribute dataset files only to authorised teammates under the dataset terms.
