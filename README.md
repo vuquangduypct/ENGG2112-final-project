@@ -12,9 +12,7 @@ The original `.py` modules remain available for command-line use and training in
 
 Read [A tasks and B handoff](docs/A_TASKS_AND_B_HANDOFF.md) for completed work, remaining responsibilities and acceptance checks. The [English data report](reports/ENGG2112_Data_Analysis_Report.pdf) describes the measured provisional results.
 
-The repository already contained CSV files at its root. The pipeline reads `data/train.csv` and `data/train_images/`; a fresh clone does not contain the required images or derived outputs. Follow the data preparation steps below.
-
-Open this folder in VS Code. Select `.venv/Scripts/python.exe` as the Python interpreter / Notebook kernel. Start with `ENGG2112_Data_Engineering.ipynb`. The earlier `notebooks/01_data_audit.ipynb` remains a shorter audit walkthrough. Both have empty saved outputs. See `B_PRESENTATION_GUIDE.txt` for the handoff demonstration and file locations.
+The pipeline reads `data/train.csv` and `data/train_images/`; a fresh clone does not contain the required images or derived outputs. The root CSV files are separate project files, not substitutes for the authorised APTOS inputs. See `B_PRESENTATION_GUIDE.txt` for the handoff demonstration and file locations.
 
 Create an environment on your computer. On Windows with Python 3.12:
 
@@ -38,10 +36,10 @@ data/
 
 Do not upload the images, labels, derived images, per-image manifests, or Notebook outputs containing source images to a public repository. Each teammate should obtain authorised access directly. `.gitignore` excludes local data, artifacts and image/CSV files. See the official [competition rules](https://www.kaggle.com/competitions/aptos2019-blindness-detection/rules).
 
-Before sharing a Notebook, clear its saved outputs locally:
+Before sharing a rerun Notebook, clear its saved outputs locally:
 
 ```powershell
-.\.venv\Scripts\python.exe -m src.clear_notebook_outputs notebooks/01_data_audit.ipynb
+.\.venv\Scripts\python.exe -m src.clear_notebook_outputs ENGG2112_Data_Engineering.ipynb
 ```
 
 The repository contains code and aggregate reports. Obtain dataset files separately through authorised access; do not commit private handoff archives.
