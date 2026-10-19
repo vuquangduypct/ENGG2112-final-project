@@ -1,0 +1,14 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+  "python.terminal.activateEnvironment": true,
+  "jupyter.notebookFileRoot": "${workspaceFolder}",
+  "files.watcherExclude": {
+    "**/data/**": true,
+    "**/.venv/**": true
+  },
+  "search.exclude": {
+    "data": true,
+    ".venv": true,
+    "artifacts": true
+  }
+}
