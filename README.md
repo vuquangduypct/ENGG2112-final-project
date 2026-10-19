@@ -41,7 +41,7 @@ Do not upload the images, labels, derived images, per-image manifests, or Notebo
 Before sharing a Notebook, clear its saved outputs locally:
 
 ```powershell
-.\.venv\Scripts\python.exe -m src.clear_notebook_outputs notebooks/01_data_audit.ipynb
+.\.venv\Scripts\python.exe -m src.clear_notebook_outputs ENGG2112_Data_Engineering.ipynb
 ```
 
 The repository contains code and aggregate reports. Obtain dataset files separately through authorised access; do not commit private handoff archives.
