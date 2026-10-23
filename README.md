@@ -8,7 +8,9 @@ Open [ENGG2112_Data_Engineering.ipynb](ENGG2112_Data_Engineering.ipynb) for the 
 
 Select the Python environment with the project dependencies, edit `PROJECT_ROOT` if needed, and run cells from top to bottom. Use `MODE = 'inspect'` with the existing private handoff. For a fresh reproduction from authorised originals, use `MODE = 'build'` and a new `RUN_NAME`; outputs go into a separate `artifacts/notebook_runs/<RUN_NAME>/` handoff. The Notebook refuses an existing build directory. See its first section for the required files. A GitHub clone alone cannot run the data cells without local data.
 
-The original `.py` modules remain available for command-line use and training integration. PDF/DOCX reports are supplementary exports; the main interactive deliverable is the complete `.ipynb`. Clear all saved outputs before sharing a rerun Notebook.
+The [model-training notebook](ENGG2112_Model_Training.ipynb) is a separate PyTorch and scikit-learn ResNet-18 baseline. It consumes the prepared handoff and existing split, selects on validation macro-F1, and keeps test evaluation locked until the split is reviewed and frozen. It cannot produce results from a GitHub clone without the authorized image data and prepared manifests. PyTorch and TorchVision are separate from the data-engineering requirements; follow the official PyTorch install selector for the chosen machine and kernel.
+
+The original `.py` modules remain available for command-line use and training integration. PDF/DOCX reports are supplementary exports. Clear saved outputs before sharing a rerun Notebook.
 
 Read [A tasks and B handoff](docs/A_TASKS_AND_B_HANDOFF.md) for completed work, remaining responsibilities and acceptance checks. The [English data report](reports/ENGG2112_Data_Analysis_Report.pdf) describes the measured provisional results.
 
